@@ -28,27 +28,25 @@ function compare(choice) {
 
 const btn1 = document.querySelector('#btn1');
 btn1.addEventListener('click', () => {
-    let result = compare('rock');
-    viewResults(result);
-    endGame();
-});
+    playGame('rock');
+ });
 
 const btn2 = document.querySelector('#btn2');
 btn2.addEventListener('click', () => {
-
-    let result = compare('paper');
-    viewResults(result);
-    endGame();
-});
+    playGame('paper')
+    });
 
 const btn3 = document.querySelector('#btn3');
 btn3.addEventListener('click', () => {
-
-    let result = compare('scissors');
-    viewResults(result);
-    endGame();
+    playGame('scissors')
 
 });
+
+function playGame(choice) {
+    let result = compare(choice);
+    viewResults(result);
+    endGame();
+}
 
 function viewResults(message) {
     const container = document.querySelector('#container');
@@ -58,14 +56,14 @@ function viewResults(message) {
 
 function endGame() {
     if (winComp == 5) {
-        alert('END GAME. Computer WON!');
-        winComp=0;
-        winUser=0;
+        alert(`END GAME. Computer WON!   Computer  `+ winComp + ` : `+ winUser +`  User`);
+        winComp = 0;
+        winUser = 0;
         viewResults("");
-    } else if (winUser == 5){
-        alert('END GAME. User WON!');
-        winComp=0;
-        winUser=0;
+    } else if (winUser == 5) {
+        alert(`END GAME. User WON!   Computer  `+ winComp + ` : `+ winUser +`  User`);
+        winComp = 0;
+        winUser = 0;
         viewResults("");
     }
 }

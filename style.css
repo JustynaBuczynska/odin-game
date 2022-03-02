@@ -1,21 +1,47 @@
-.body{
+body{
     background-color:white;
     color: black;
     font-size: medium;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    text-align: center;
+  
+    }
+
+    .title{
+        border: 5px black solid;
+        background-color: pink;
+        padding: 10px;
+        margin: 5px 400px 5px 400px;
     }
   
-    .container{
-      background-color: #1F2937;
-      color: #FFFFFF;
+    #container{
+      background-color: white;
+      color: black;
+      display: flex;
+      padding: 10px;
+      border: 5px white solid;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
       }
-  
-      .content{
-        color: red;
-      }
-  
-     
-       .btn1 .btn2 .btn3{
+    
+    .btn{
         color: black;
-        background-color: pink;
-        border: 5px black solid;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: center;
       }
+
+      #btn1 #btn2 #btn3{
+        color: black;
+        padding: 10px;
+        border: 5px black solid;
+        display: flex;
+        border-radius:10px;
+        font-size: medium;
+        background: pink;
+        }
