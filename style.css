@@ -1,0 +1,21 @@
+.body{
+    background-color:white;
+    color: black;
+    font-size: medium;
+    }
+  
+    .container{
+      background-color: #1F2937;
+      color: #FFFFFF;
+      }
+  
+      .content{
+        color: red;
+      }
+  
+     
+       .btn1 .btn2 .btn3{
+        color: black;
+        background-color: pink;
+        border: 5px black solid;
+      }

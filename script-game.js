@@ -5,23 +5,67 @@ function computerChoice() {
     return option[optionNumber];
 }
 
-function myChoice(message='Rock, paper or scissors? Choose one!') {
-    let userChoice = prompt(message).toLowerCase();
-
-    if (option.includes(userChoice)) {
-        return userChoice;
-    } else {
-        alert('Wrong input!');
-        return myChoice('WRONG! Try again! Rock, paper or scissors? Choose one!');
+let winComp = 0;
+let winUser = 0;
+function compare(choice) {
+    let user = choice;
+    let computer = computerChoice();
+    if (computer == user) {
+        return 'Computer chose ' + computer + '.  User chose ' + user + '.  DRAW! Computer = ' + winComp + ' User = ' + winUser;
+    }
+    else if (computer == 'rock' && user == 'scissors' || computer == 'scissors' && user == 'paper' || computer == 'paper' && user == 'rock') {
+        winComp++;
+        return 'Computer chose ' + computer + '.  User chose ' +
+            user + '.  Computer win! Computer = ' + winComp + ' User = ' + winUser;
+    }
+    else {
+        winUser++;
+        return 'Computer chose ' + computer + '. User chose ' + user + '.  User win! Computer = ' + winComp + ' User = ' + winUser;
     }
 }
 
-function compare(){
-   let user=myChoice();
-   let computer=computerChoice();
-if(computer == user)
-{return 'Computer chose '+computer+'.  User chose ' +user+ '.  DRAW!'}
-else if (computer=='rock' && user=='scissors' || computer=='scissors' && user=='paper' || computer=='paper' && user=='rock' ){
-    return 'Computer chose '+computer+'.  User chose ' +user+ '.  Computer win!'}
-else { return 'Computer chose '+computer+'. User chose ' +user+ '.  User win!'}
+
+
+const btn1 = document.querySelector('#btn1');
+btn1.addEventListener('click', () => {
+    let result = compare('rock');
+    viewResults(result);
+    endGame();
+});
+
+const btn2 = document.querySelector('#btn2');
+btn2.addEventListener('click', () => {
+
+    let result = compare('paper');
+    viewResults(result);
+    endGame();
+});
+
+const btn3 = document.querySelector('#btn3');
+btn3.addEventListener('click', () => {
+
+    let result = compare('scissors');
+    viewResults(result);
+    endGame();
+
+});
+
+function viewResults(message) {
+    const container = document.querySelector('#container');
+    container.textContent = message;
+
+}
+
+function endGame() {
+    if (winComp == 5) {
+        alert('END GAME. Computer WON!');
+        winComp=0;
+        winUser=0;
+        viewResults("");
+    } else if (winUser == 5){
+        alert('END GAME. User WON!');
+        winComp=0;
+        winUser=0;
+        viewResults("");
+    }
 }
